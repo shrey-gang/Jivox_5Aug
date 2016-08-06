@@ -43,9 +43,7 @@
 			<div class="col-lg-3" align="left">
 				<select name="tzone" id="tzone">
 					<option value="UTC +5:30">IST</option>
-					<option value="UTC +5:45">Nepal</option>
-					<option value="UTC +6:00">Nicaragua</option>
-					<option value="UTC +7:00">Indonesia</option>
+					<option value="UTC">UTC</option>
 				</select>
 			</div>
 			<div class="col-lg-1"></div>
@@ -66,12 +64,13 @@
 		analogClock.prototype.run = function(tzone) {
 			if ( tzone == 'UTC +5:30') {
 				var date = new Date();
-			}else{
+			    var second = date.getSeconds()* 6;
+			}else if ( tzone == 'UTC') {
 				var date = new Date();
+				var second = ( date.getSeconds() + 19800 ) * 6;
 			}
-		    var second = date.getSeconds()* 6;
-		    var minute = date.getMinutes()* 6 + second / 60;
-		    var hour = ((date.getHours() % 12) / 12) * 360 + 90 + minute / 12;
+			var minute = date.getMinutes()* 6 + second / 60;
+			var hour = ((date.getHours() % 12) / 12) * 360 + 90 + minute / 12;
 		    jQuery('#hour').css("transform", "rotate(" + hour + "deg)");
 		    jQuery('#minute').css("transform", "rotate(" + minute + "deg)");
 		    jQuery('#second').css("transform", "rotate(" + second + "deg)");
