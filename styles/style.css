@@ -3,10 +3,10 @@
   height: 400px;
   margin: 0 auto;
   position: relative;
-  border: 8px solid #fff;
+  border: 8px solid #80aaff;
   border-radius: 50%;
   -webkit-box-shadow: 0 1px 8px rgba(34, 34, 34, 0.3),inset 0 1px 8px rgba(34, 34, 34, 0.3);
-  background: #80aaff;
+  background: #66ffcc;
 }
 .face {
   width: 100%;
@@ -18,7 +18,7 @@
   left:50%;
   margin:-4px 0 -4px -25%;
   padding:4px 0 4px 25%;
-  background:#000;
+  background:#ff6600;
   -webkit-transform-origin:100% 50%;
   -ms-transform-origin:100% 50%;
   transform-origin:100% 50%;
@@ -30,7 +30,7 @@
   left:50%;
   margin:-40% -3px 0;
   padding:40% 3px 0;
-  background:#000;
+  background:#33cc33;
   -webkit-transform-origin:50% 100%;
   -ms-transform-origin:50% 100%;
   transform-origin:50% 100%;
@@ -42,7 +42,7 @@
   left:50%;
   margin:-40% -1px 0 0;
   padding:40% 1px 0;
-  background:#000;
+  background:#ff0000;
   -webkit-transform-origin:50% 100%;
   -ms-transform-origin:50% 100%;
   transform-origin:50% 100%;
@@ -54,7 +54,7 @@
     width:12px;
     height:12px;
     margin:-6px 0 0 -6px;
-    background:#fff;
+    background:#6600ff;
     border-radius:6px;
     content:"";
     display:block;
