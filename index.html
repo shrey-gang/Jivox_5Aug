@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	
+	<title>Analog Clock</title>
+
+	<!-- jQuery -->
+	<script src="js/jquery-3.1.0.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script>
+		var tzone = "UTC +5:30";
+		$(document).ready(function(){
+			var aclock = new analogClock();
+			
+			$(document).on('change', 'select#tzone', function(){
+	           	tzone = $(this).val();
+			});
+
+			window.setInterval(function(){ 
+				aclock.run(tzone); 
+			}, 100);
+
+		});
+	</script>
+
+</head>
+<body>
+	<div class="page-header" align="center">
+			<h1><strong>Jivox Hack</strong></h1>
+	</div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" align="left">
+				<select name="tzone" id="tzone">
+					<option value="UTC +5:30">IST</option>
+					<option value="UTC +5:45">Nepal</option>
+					<option value="UTC +6:00">Nicaragua</option>
+					<option value="UTC +7:00">Indonesia</option>
+				</select>
+			</div>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-8 circle" id="ClockDis">
+				<div class="face">
+				   <div id="hour" class="hour"></div>
+				   <div id="minute" class="minute"></div>
+				   <div id="second" class="second"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function analogClock(){
+		}
+		
+		analogClock.prototype.run = function(tzone) {
+			if ( tzone == 'UTC +5:30') {
+				var date = new Date();
+			}else{
+				var date = new Date();
+			}
+		    var second = date.getSeconds()* 6;
+		    var minute = date.getMinutes()* 6 + second / 60;
+		    var hour = ((date.getHours() % 12) / 12) * 360 + 90 + minute / 12;
+		    jQuery('#hour').css("transform", "rotate(" + hour + "deg)");
+		    jQuery('#minute').css("transform", "rotate(" + minute + "deg)");
+		    jQuery('#second').css("transform", "rotate(" + second + "deg)");
+
+		};
+	</script>
+
+</body>
+</html>
